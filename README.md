@@ -70,6 +70,18 @@ For evaluation if the mode you used was train run the following command:
 python src/eval_train.py
 ```
 
+To change from train to test mode change the following line in `src/constants.py`:
+
+```python
+MODE = "train"  # "train" or "test"
+```
+
+To run the train data and augment it change the following line in `src/constants.py`:
+
+```python
+AUGMENT_TRAIN_DATA = False  # True or False
+```
+
 For evaluation if the mode you used was test run the following command:
 
 ```bash
