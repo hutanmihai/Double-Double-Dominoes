@@ -15,16 +15,26 @@ SHOW_AUGMENTATION_STEPS = False
 AUGMENT_DATA = False
 PREPROCESS_PATCHES = True  # Preprocess the patches before classification and the templates at creation
 
-MODE = "train"  # Mode of operation (train or test)
+MODE = "test"  # Mode of operation (train or test)
+
+# TRAIN
 TRAIN_DATA_PATH = Path("data/train")
-AUX_DATA_PATH = Path("data/auxiliary")
-TEST_DATA_PATH = Path("data/test")
+
+# TEST
+TEST_DATA_PATH = Path("data/test/data")
+GROUND_TRUTH_PATH = Path("data/test/ground-truth")
+
+# SOLUTION FOR BOTH TEST AND TRAIN
 SOLUTION_PATH = Path("data/solution")
+
+# TEMPLATES
 TEMPLATES_PATH = Path("data/templates")
 VERTICAL_TEMPLATES_PATH = TEMPLATES_PATH / "vertical"
 HORIZONTAL_TEMPLATES_PATH = TEMPLATES_PATH / "horizontal"
 CENTER_TEXT_PATH = Path("data/templates/center-text")
 
+# AUXILIARY DATA
+AUX_DATA_PATH = Path("data/auxiliary")
 AUGMENT_DATA_PATH = Path("data/augment")
 
 LOWERB_BOARD = np.array([80, 0, 0])  # Lower bound for board color (used in board extraction)
@@ -36,7 +46,7 @@ UPPERB_PIECE = np.array([123, 99, 255])
 NUMBER_OF_GAMES = 5
 NUMBER_OF_TURNS = 20
 
-TEST_NUMBER_OF_GAMES = 1
+TEST_NUMBER_OF_GAMES = 5
 TEST_NUMBER_OF_TURNS = 20
 
 BOX_SIZE = 100  # Size of the box containing half a domino piece after board extraction and warp

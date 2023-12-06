@@ -77,11 +77,11 @@ class DominoPiece:
 
 class Turn:
     def __init__(
-        self,
-        turn_number: int,
-        player: Player,
-        image: np.ndarray,
-        domino_piece: DominoPiece,
+            self,
+            turn_number: int,
+            player: Player,
+            image: np.ndarray,
+            domino_piece: DominoPiece,
     ):
         self.turn_number = turn_number
         self.player = player

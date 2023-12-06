@@ -67,11 +67,11 @@ python src/main.py
 For evaluation if the mode you used was train run the following command:
 
 ```bash
-python src/eval.py
+python src/eval_train.py
 ```
 
 For evaluation if the mode you used was test run the following command:
 
 ```bash
-python src/evalueaza_solutie.py
+python src/eval_test.py
 ```
