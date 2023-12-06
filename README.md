@@ -79,7 +79,8 @@ MODE = "train"  # "train" or "test"
 To run the train data and augment it change the following line in `src/constants.py`:
 
 ```python
-AUGMENT_TRAIN_DATA = False  # True or False
+AUGMENT_DATA = True  # True or False
+MODE = "train"
 ```
 
 For evaluation if the mode you used was test run the following command:
