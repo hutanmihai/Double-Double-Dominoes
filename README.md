@@ -1,4 +1,4 @@
-# Computer Vision - Project 1 - Double Double Dominoes
+# Computer Vision - Double Double Dominoes
 
 ## Author
 
