@@ -11,7 +11,11 @@
 
 ## Description
 
-[//]: # (TODO)
+Implemented a computer vision system for automated dominoes game analysis. The project involves three main steps: board extraction, piece detection, and classification.
+- Board extraction includes HSV masking, preprocessing, edge detection, and contour identification.
+- Piece detection addresses challenges such as center text interference and misplacement.
+- Classification utilizes templates for both vertical and horizontal domino pieces, employing template matching with preprocessing for accurate results.
+- The final component, score calculation, involves dynamic programming considering player positions on the score board.
 
 You can run it by following the instructions described below, and see the documentation [here](#documentation)
 or [here](./documentation.pdf).
