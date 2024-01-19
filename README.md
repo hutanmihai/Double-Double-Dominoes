@@ -141,7 +141,7 @@ The score board is unnecessary because in the test image the players are not mov
 
 ![Test Example](./docs/images/examples/test_example.png)
 
-#### 2.1.2 Steps
+#### 1.1.2 Steps
 All parameters values presented in the following steps were found by trial and error, and visualization logic while debugging.
 
 All these steps can be visualized in the following images.
@@ -184,7 +184,7 @@ All these steps can be visualized in the following images.
 
 ![Board Extraction Warped](./docs/images/board_extraction/lines.png)
 
-### 2.2 Piece Detection
+### 1.2 Piece Detection
 - The core idea is to use the same mask as before and get each patch at a time, calculate the mean value of the pixels and use a threshold to detect if there is a piece of domino or not.
 - We’ve faced two main problems here, the center of the board appears in the mask, (the text of Double Double Dominoes is white therefore appears in the mask) and some pieces are not placed correctly, therefore the black pixels from the board appear in the image influencing the mean.
 - The center text problem is solved by using template matching. I’ve created templates from the auxiliary images with each patch of the center text, and if they match we ignore that when detecting. The created templates can be visualized in the following images.
@@ -201,9 +201,9 @@ All these steps can be visualized in the following images.
 ![Piece Detection Mask](./docs/images/detection/mask2.png)
 ![Piece Detection Visualization](./docs/images/detection/detection2.png)
 
-## 3. Classification
+## 2. Classification
 
-### 3.1. Templates Creation
+### 2.1. Templates Creation
 
 For template creation I used a programatic approach, to remove human error. I hardcoded the places on both the vertical and horizontal auxiliary images.
 
@@ -220,7 +220,7 @@ Some examples of the generated templates can be visualized in the following imag
 ![Template 6 horizontal](./docs/images/templates_no_preprocess/horizontal/6.png)
 ![Template 6 vertical](./docs/images/templates_no_preprocess/vertical/6.png)
 
-### 3.2 Template Matching
+### 2.2 Template Matching
 For template matching we use the matchTemplate function from opencv with TM COEFF NORMED.
 
 The main trick for good results is to preprocess the patches. We remove noise, try to remove the lines and board from bad placed pieces, also preprocess the templates, and then call the template matching function.
@@ -241,7 +241,7 @@ The preprocess result on extracted patches from the table can be visualized in t
 ![No preprocessed patch](./docs/images/patch_preprocessing/original2.png)
 ![Preprocessed patch](./docs/images/patch_preprocessing/preproc2.png)
 
-### 4. Score Calculation
+### 3. Score Calculation
 For score calculation, once the detection and classification work well, there is only a simple dynamic programming approach.
 
 Since the score is related to the current position of each player on the score board (aka. their total score) we must save that data constantly at each step. On each move we calculate the current score of the player moving the piece by checking the hardcoded bonus values from the tables, by checking if it is a double piece (3,3 / 6,6 etc.) and by checking for both players if the value placed is the same as their current position on the score board.
